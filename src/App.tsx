@@ -2,10 +2,11 @@ import './App.css'
 import {Navigate, Route, Routes} from "react-router";
 import Guest from "./components/Guest";
 import Profile from "./components/Profile";
+import {useAppSelector} from "./app/hooks.ts";
 
 function App() {
 
-    const token = ''
+    const token = useAppSelector(state => state.token)
 
     return (
         <Routes>

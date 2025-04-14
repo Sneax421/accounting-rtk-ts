@@ -1,12 +1,15 @@
 import {useState} from "react";
+import {useAppDispatch} from "../../app/hooks.ts";
+import {fetchUser} from "../../features/api/accountApi.ts";
+import {createToken} from "../../features/user/constans.ts";
 
 const SignIn = () => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
+    const dispatch = useAppDispatch();
 
     const handleClickSignIn = () => {
-        // TODO handleClickSignIn
-        alert('Sign in')
+        dispatch(fetchUser(createToken(login, password)));
     }
 
     const handelClickClear = () => {
